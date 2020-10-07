@@ -1,6 +1,6 @@
 """
     ghwht
-    ~~~~
+    ~~~~~
 
     Type definitons for GitHub webhooks.
 """
