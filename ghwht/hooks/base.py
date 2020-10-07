@@ -93,26 +93,6 @@ class Payload:
     """
 
 
-@dataclasses.dataclass
-class EmptyPayload(Payload):
-    """
-    Represents an empty Github event payload.
-    """
-
-
-@dataclasses.dataclass
-class StandardPayload(Payload):
-    """
-    Represents a standard Github event payload.
-
-    This contains commonly found information about the context that generated the webhook event.
-    """
-    installation: Optional[common.Installation]
-    organization: Optional[common.Organization]
-    repository: Optional[common.Repository]
-    sender: Optional[common.Sender]
-
-
 # Generic type var for types derived from :class:`~ghwht.hooks.base.Payload`.
 PayloadT = TypeVar('PayloadT', bound=Payload)
 
