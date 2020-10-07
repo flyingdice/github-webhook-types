@@ -35,12 +35,13 @@ class Hook:
 
 
 @dataclasses.dataclass
-class Payload(base.EmptyPayload):
+class Payload(base.Payload):
     hook: Hook
     hook_id: int
     zen: str
 
 
+Action = base.Action
 Name = base.EventName.Ping
-ID = base.ID[base.Action]
+ID = base.ID[Action]
 Event = base.Event[ID, Payload]
