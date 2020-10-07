@@ -6,7 +6,7 @@
 """
 from typing import Dict, Type
 
-from . import base, installation, ping, pull_request, repository
+from . import base, installation, ping
 
 __all__ = ['NAME_TO_EVENT', 'Event', 'EventName', 'EventT', 'ID']
 
@@ -22,8 +22,7 @@ def hooks_modules():
     """
     Generator function that yields all registered webhook event modules.
     """
-    for module in (ping,):
-        yield module
+    yield from (installation, ping)
 
 
 # Lookup table that maps event names to their appropriate identifier type.
