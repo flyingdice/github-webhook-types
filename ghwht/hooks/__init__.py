@@ -22,7 +22,7 @@ def hooks_modules():
     """
     Generator function that yields all registered webhook event modules.
     """
-    for module in (installation, ping, pull_request, repository):
+    for module in (ping,):
         yield module
 
 
