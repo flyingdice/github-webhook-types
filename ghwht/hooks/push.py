@@ -49,16 +49,45 @@ class Organization:
 
 
 @dataclasses.dataclass
+class Author:
+    email: str
+    name: str
+    username: str
+
+
+@dataclasses.dataclass
+class Committer:
+    email: str
+    name: str
+    username: str
+
+
+@dataclasses.dataclass
+class Commit:
+    added: List[str]
+    author: Author
+    committer: Committer
+    distinct: bool
+    id: str
+    message: str
+    modified: List[str]
+    removed: List[str]
+    tree_id: str
+    timestamp: datetime
+    url: HttpUrl
+
+
+@dataclasses.dataclass
 class Payload(base.Payload):
     after: str
-    base_ref: Optional[common.Commit]
+    base_ref: Optional[str]
     before: str
-    commits: List[common.Commit]
+    commits: List[Commit]
     compare: str
     created: bool
     deleted: bool
     forced: bool
-    head_commit: Optional[common.Commit]
+    head_commit: Optional[Commit]
     pusher: common.Pusher
     ref: str
     repository: common.Repository
