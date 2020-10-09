@@ -28,16 +28,6 @@ class Status(str, enum.Enum):
     Queued = 'queued'
 
 
-class Conclusion(str, enum.Enum):
-    ActionRequired = 'action_required'
-    Cancelled = 'cancellled'
-    Failure = 'failure'
-    Neutral = 'neutral'
-    State = 'stale'
-    Success = 'success'
-    TimedOut = 'timed_out'
-
-
 @dataclasses.dataclass
 class Output:
     annotations_count: int
@@ -109,25 +99,10 @@ class App:
 
 
 @dataclasses.dataclass
-class CheckSuite:
-    app: App
-    after: str
-    before: str
-    conclusion: Conclusion
-    head_branch: str
-    head_sha: str
-    id: int
-    node_id: str
-    pull_requests: List[PullRequest]
-    status: Status
-    url: HttpUrl
-
-
-@dataclasses.dataclass
 class CheckRun:
     app: App
     completed_at: Optional[datetime]
-    conclusion: Optional[Conclusion]
+    conclusion: Optional[common.Conclusion]
     details_url: HttpUrl
     external_id: str
     head_sha: str
