@@ -15,7 +15,7 @@ from pydantic import dataclasses, HttpUrl
 from . import base, common
 
 
-class Action(str, enum.Enum):
+class Action(base.Action):
     Completed = 'completed'
     Created = 'created'
     RequestedAction = 'requested_action'

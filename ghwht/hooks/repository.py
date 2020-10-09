@@ -6,7 +6,6 @@
 
     https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhook-events-and-payloads#repository
 """
-import enum
 from typing import Optional
 
 from pydantic import dataclasses
@@ -14,7 +13,7 @@ from pydantic import dataclasses
 from . import base, common
 
 
-class Action(str, enum.Enum):
+class Action(base.Action):
     Archived = 'archived'
     Created = 'created'
     Deleted = 'deleted'

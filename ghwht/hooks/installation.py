@@ -6,7 +6,6 @@
 
     https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhook-events-and-payloads#installation
 """
-import enum
 from datetime import datetime
 from typing import List, Optional
 
@@ -15,7 +14,7 @@ from pydantic import dataclasses, HttpUrl
 from . import base, common
 
 
-class Action(str, enum.Enum):
+class Action(base.Action):
     Created = 'created'
     Deleted = 'deleted'
     NewPermissionsAccepted = 'new_permissions_accepted'
