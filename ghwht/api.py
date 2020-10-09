@@ -19,7 +19,7 @@ ID = hooks.ID
 
 def new(delivery_id: str,
         event_name: str,
-        hook_id: str,
+        hook_id: int,
         action: Optional[str],
         payload: dict) -> hooks.EventT:
     """
@@ -45,7 +45,7 @@ def new(delivery_id: str,
             action=action
         ),
         delivery_id=delivery_id,
-        hook_id=int(hook_id),
+        hook_id=hook_id,
         payload=payload
     )
 
