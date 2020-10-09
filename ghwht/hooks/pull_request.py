@@ -11,7 +11,7 @@ import enum
 from datetime import datetime
 from typing import Optional, List
 
-from pydantic import dataclasses, HttpUrl
+from pydantic import dataclasses, HttpUrl, Field, BaseModel
 
 from . import base, common
 
@@ -62,20 +62,7 @@ class Changes:
     body: Optional[str]
 
 
-@dataclasses.dataclass
-class Label:
-    color: str
-    description: str
-    default: bool
-    id: int
-    name: str
-    node_id: str
-    url: HttpUrl
-
-
-@dataclasses.dataclass
-class PullRequest:
-    _links: Links  # TODO - This is currently being ignored because of leading underscore. Research.
+class PullRequest(BaseModel):
     active_lock_reason: Optional[str]
     additions: int
     assignee: Optional[common.User]
@@ -97,7 +84,8 @@ class PullRequest:
     html_url: HttpUrl
     id: int
     issue_url: HttpUrl
-    labels: List[Label]
+    labels: List[common.Label]
+    links: Links = Field(..., alias='_links')
     locked: bool
     maintainer_can_modify: bool
     merge_commit_sha: Optional[str]
@@ -133,7 +121,7 @@ class Payload(base.Payload):
 
     assignee: Optional[common.Assignee] = None
     installation: Optional[common.Installation] = None
-    label: Optional[Label] = None
+    label: Optional[common.Label] = None
     organization: Optional[common.Organization] = None
 
 
