@@ -105,7 +105,7 @@ class PullRequest:
     mergeable_state: str
     merged: bool
     merged_at: Optional[datetime]
-    merged_by: Optional[str]
+    merged_by: Optional[common.User]
     milestone: Optional[str]
     node_id: str
     number: int
