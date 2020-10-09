@@ -18,6 +18,7 @@ from . import base, common
 class Action(str, enum.Enum):
     Created = 'created'
     Deleted = 'deleted'
+    NewPermissionsAccepted = 'new_permissions_accepted'
     Suspended = 'suspend'
     Unsuspend = 'unsuspend'
 
@@ -55,9 +56,10 @@ class Repository:
 @dataclasses.dataclass
 class Payload(base.Payload):
     installation: Installation
-    repositories: List[Repository]
-    requester: Optional[str]
     sender: common.Sender
+
+    repositories: List[Repository] = None
+    requester: Optional[str] = None
 
 
 Name = base.EventName.Installation
