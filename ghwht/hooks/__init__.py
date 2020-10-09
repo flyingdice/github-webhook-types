@@ -7,7 +7,7 @@
 from typing import Dict, Type
 
 from . import (base, check_run, check_suite, create, delete, fork, installation,
-               installation_repositories, ping, public, pull_request,
+               installation_repositories, label, ping, public, pull_request,
                push, release, repository)
 
 __all__ = ['NAME_TO_EVENT', 'Event', 'EventName', 'EventT', 'ID']
@@ -25,7 +25,7 @@ def hooks_modules():
     Generator function that yields all registered webhook event modules.
     """
     yield from (check_run, check_suite, create, delete, fork, installation,
-                installation_repositories, ping, public, pull_request,
+                installation_repositories, label, ping, public, pull_request,
                 push, release, repository)
 
 
