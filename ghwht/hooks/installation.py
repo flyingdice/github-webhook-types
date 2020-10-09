@@ -8,7 +8,7 @@
 """
 import enum
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import List, Optional
 
 from pydantic import dataclasses, HttpUrl
 
@@ -33,8 +33,8 @@ class Installation:
     events: List[str]
     html_url: HttpUrl
     id: int
-    permissions: Dict[str, str]
-    repository_selection: str
+    permissions: common.InstallationPermissions
+    repository_selection: common.RepositorySelection
     repositories_url: HttpUrl
     single_file_name: Optional[str]
     suspended_at: Optional[str]
