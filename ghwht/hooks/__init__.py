@@ -6,7 +6,7 @@
 """
 from typing import Dict, Type
 
-from . import (base, check_run, check_suite, create, fork, installation,
+from . import (base, check_run, check_suite, create, delete, fork, installation,
                installation_repositories, ping, public, pull_request,
                push, release, repository)
 
@@ -24,7 +24,7 @@ def hooks_modules():
     """
     Generator function that yields all registered webhook event modules.
     """
-    yield from (check_run, check_suite, create, fork, installation,
+    yield from (check_run, check_suite, create, delete, fork, installation,
                 installation_repositories, ping, public, pull_request,
                 push, release, repository)
 
