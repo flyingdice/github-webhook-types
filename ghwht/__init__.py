@@ -6,11 +6,27 @@
 """
 from . import api, meta
 
-new = api.new
+new_event = api.new_event
+new_id = api.new_id
 Event = api.Event
 EventName = api.EventName
 EventT = api.EventT
 ID = api.ID
+
+CheckRunEvent = api.CheckRunEvent
+CheckSuiteEvent = api.CheckSuiteEvent
+CreateEvent = api.CreateEvent
+DeleteEvent = api.DeleteEvent
+ForkEvent = api.ForkEvent
+InstallationEvent = api.InstallationEvent
+InstallationRepositoriesEvent = api.InstallationRepositoriesEvent
+LabelEvent = api.LabelEvent
+PingEvent = api.PingEvent
+PublicEvent = api.PublicEvent
+PullRequestEvent = api.PullRequestEvent
+PushEvent = api.PushEvent
+ReleaseEvent = api.ReleaseEvent
+RepositoryEvent = api.RepositoryEvent
 
 
 __all__ = api.__all__

@@ -8,7 +8,11 @@ from typing import Optional
 
 from . import hooks
 
-__all__ = ['new', 'Event', 'EventName', 'EventT', 'ID']
+__all__ = ['new_event', 'new_id', 'Event', 'EventName', 'EventT', 'ID',
+           'CheckRunEvent', 'CheckSuiteEvent', 'CreateEvent', 'DeleteEvent',
+           'ForkEvent', 'InstallationEvent', 'InstallationRepositoriesEvent',
+           'LabelEvent', 'PingEvent', 'PublicEvent', 'PullRequestEvent',
+           'PushEvent', 'ReleaseEvent', 'RepositoryEvent']
 
 # Export common base types.
 Event = hooks.Event
@@ -16,12 +20,28 @@ EventName = hooks.EventName
 EventT = hooks.EventT
 ID = hooks.ID
 
+# Export concrete event types.
+CheckRunEvent = hooks.CheckRunEvent
+CheckSuiteEvent = hooks.CheckSuiteEvent
+CreateEvent = hooks.CreateEvent
+DeleteEvent = hooks.DeleteEvent
+ForkEvent = hooks.ForkEvent
+InstallationEvent = hooks.InstallationEvent
+InstallationRepositoriesEvent = hooks.InstallationRepositoriesEvent
+LabelEvent = hooks.LabelEvent
+PingEvent = hooks.PingEvent
+PublicEvent = hooks.PublicEvent
+PullRequestEvent = hooks.PullRequestEvent
+PushEvent = hooks.PushEvent
+ReleaseEvent = hooks.ReleaseEvent
+RepositoryEvent = hooks.RepositoryEvent
 
-def new(delivery_id: str,
-        event_name: str,
-        hook_id: int,
-        action: Optional[str],
-        payload: dict) -> hooks.EventT:
+
+def new_event(delivery_id: str,
+              event_name: str,
+              hook_id: int,
+              action: Optional[str],
+              payload: dict) -> hooks.EventT:
     """
     Create an event instance for the given data.
 
@@ -49,3 +69,23 @@ def new(delivery_id: str,
         payload=payload
     )
 
+
+def new_id(value: str) -> ID:
+    """
+    Create an ID instance for the given string.
+
+    The string will be in the format '{event_name}.{action}'
+    where 'action' is optional.
+
+    Ex: 'issues.created' or 'ping'
+
+    :param value: Value to convert to ID
+    :return: ID
+    """
+    event_name, *extras = value.split('.')
+
+    name = hooks.EventName(event_name)
+    return hooks.NAME_TO_ID[name](
+        event_name=name,
+        action=extras[0] if len(extras) else None
+    )

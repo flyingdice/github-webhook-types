@@ -10,14 +10,34 @@ from . import (base, check_run, check_suite, create, delete, fork, installation,
                installation_repositories, label, ping, public, pull_request,
                push, release, repository)
 
-__all__ = ['NAME_TO_EVENT', 'Event', 'EventName', 'EventT', 'ID']
+__all__ = ['NAME_TO_EVENT', 'Event', 'EventName', 'EventT', 'ID',
+           'CheckRunEvent', 'CheckSuiteEvent', 'CreateEvent', 'DeleteEvent',
+           'ForkEvent', 'InstallationEvent', 'InstallationRepositoriesEvent',
+           'LabelEvent', 'PingEvent', 'PublicEvent', 'PullRequestEvent',
+           'PushEvent', 'ReleaseEvent', 'RepositoryEvent']
 
-# Alias to simplify imports.
+# Alias base types.
 Event = base.Event
 EventName = base.EventName
 EventT = base.EventT
 ID = base.ID
 IDT = base.IDT
+
+# Alias concrete event types.
+CheckRunEvent = check_run.Event
+CheckSuiteEvent = check_suite.Event
+CreateEvent = create.Event
+DeleteEvent = create.Event
+ForkEvent = create.Event
+InstallationEvent = installation.Event
+InstallationRepositoriesEvent = installation_repositories.Event
+LabelEvent = label.Event
+PingEvent = ping.Event
+PublicEvent = public.Event
+PullRequestEvent = pull_request.Event
+PushEvent = push.Event
+ReleaseEvent = release.Event
+RepositoryEvent = repository.Event
 
 
 def hooks_modules():
