@@ -39,6 +39,7 @@ class RepositoryRemoved:
     full_name: str
     id: int
     name: str
+    node_id: str
     private: bool
 
 
@@ -49,7 +50,7 @@ class Installation:
     app_id: int
     app_slug: str
     created_at: datetime
-    events: List[str]
+    events: List[common.Event]
     html_url: HttpUrl
     id: int
     permissions: common.InstallationPermissions
