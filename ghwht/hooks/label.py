@@ -19,15 +19,11 @@ class Action(base.Action):
     Edited = 'edited'
 
 
-class Change(BaseModel):
-    from_: str = Field(..., alias='from')
-
-
 @dataclasses.dataclass
 class Changes:
-    color: Optional[Change] = None
-    description: Optional[Change] = None
-    name: Optional[Change] = None
+    color: Optional[common.Change] = None
+    description: Optional[common.Change] = None
+    name: Optional[common.Change] = None
 
 
 @dataclasses.dataclass

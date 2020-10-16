@@ -26,10 +26,19 @@ class Action(base.Action):
 
 
 @dataclasses.dataclass
+class Changes:
+    default_branch: Optional[common.Change] = None
+    description: Optional[common.Change] = None
+    homepage: Optional[common.Change] = None
+    name: Optional[common.Change] = None
+
+
+@dataclasses.dataclass
 class Payload(base.Payload):
     repository: common.Repository
     sender: common.Sender
 
+    changes: Optional[Changes] = None
     installation: Optional[common.Installation] = None
     organization: Optional[common.Organization] = None
 
