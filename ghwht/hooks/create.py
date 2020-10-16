@@ -19,15 +19,11 @@ class RefType(str, enum.Enum):
     Tag = 'tag'
 
 
-class PusherType(str, enum.Enum):
-    User = 'user'
-
-
 @dataclasses.dataclass
 class Payload(base.Payload):
     description: Optional[str]
     master_branch: str
-    pusher_type: PusherType
+    pusher_type: common.PusherType
     ref: str
     ref_type: RefType
     repository: common.Repository
