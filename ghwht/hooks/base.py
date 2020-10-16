@@ -107,6 +107,9 @@ class ID(generics.GenericModel, Generic[ActionT]):
     event_name: EventName
     action: Optional[ActionT]
 
+    def __hash__(self):
+        return hash(str(self))
+
     def __str__(self):
         return '.'.join((p.value for p in (self.event_name, self.action) if p))
 
@@ -129,10 +132,6 @@ class Event(generics.GenericModel, Generic[IDT, PayloadT]):
     delivery_id: UUID
     hook_id: int
     payload: PayloadT
-
-    @property
-    def installation_id(self):
-        return getattr(getattr(self.payload, 'installation', None), 'id', None)
 
 
 # Generic type var for types derived from :class:`~ghwht.hooks.base.Event`.
