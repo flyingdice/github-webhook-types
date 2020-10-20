@@ -41,6 +41,7 @@ class State(str, enum.Enum):
 
 class AuthorAssociation(str, enum.Enum):
     Contributor = 'CONTRIBUTOR'
+    None_ = 'NONE'
     Owner = 'OWNER'
 
 
