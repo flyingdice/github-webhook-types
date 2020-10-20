@@ -57,9 +57,10 @@ class PusherType(str, enum.Enum):
 
 
 class TargetType(str, enum.Enum):
-    User = 'User'
-    Repository = 'Repository'
+    Bot = 'Bot'
     Organization = 'Organization'
+    Repository = 'Repository'
+    User = 'User'
 
 
 @dataclasses.dataclass
