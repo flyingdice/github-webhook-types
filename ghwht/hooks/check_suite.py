@@ -51,10 +51,17 @@ class Commit:
 
 
 @dataclasses.dataclass
+class Repository:
+    id: int
+    name: str
+    url: HttpUrl
+
+
+@dataclasses.dataclass
 class PullRequestCommit:
     ref: str
     sha: str
-    repo: common.Repository
+    repo: Repository
 
 
 @dataclasses.dataclass
