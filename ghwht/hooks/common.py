@@ -29,6 +29,8 @@ class Event(str, enum.Enum):
     Delete = 'delete'
     Fork = 'fork'
     Gollum = 'gollum'
+    Issues = 'issues'
+    IssueComment = 'issue_comment'
     Label = 'label'
     Milestone = 'milestone'
     Public = 'public'
