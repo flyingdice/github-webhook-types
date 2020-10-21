@@ -55,6 +55,7 @@ class Event(str, enum.Enum):
 
 
 class Permission(str, enum.Enum):
+    Pull = 'pull'
     Read = 'read'
     Write = 'write'
 
@@ -285,7 +286,17 @@ class Link:
 
 @dataclasses.dataclass
 class Team:
-    pass
+    description: Optional[str]
+    html_url: HttpUrl
+    id: int
+    members_url: HttpUrl
+    name: str
+    node_id: str
+    permission: Permission
+    privacy: str
+    repositories_url: HttpUrl
+    slug: str
+    url: HttpUrl
 
 
 @dataclasses.dataclass

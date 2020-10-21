@@ -28,6 +28,7 @@ ALL = [
     'LabelEvent',
     'MarketplacePurchaseEvent',
     'MemberEvent',
+    'MembershipEvent',
     'PingEvent',
     'PublicEvent',
     'PullRequestEvent',
@@ -57,6 +58,7 @@ IssuesEvent = hooks.IssuesEvent
 LabelEvent = hooks.LabelEvent
 MarketplacePurchaseEvent = hooks.MarketplacePurchaseEvent
 MemberEvent = hooks.MemberEvent
+MembershipEvent = hooks.MembershipEvent
 PingEvent = hooks.PingEvent
 PublicEvent = hooks.PublicEvent
 PullRequestEvent = hooks.PullRequestEvent
