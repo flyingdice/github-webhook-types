@@ -15,6 +15,7 @@ ID = api.ID
 
 CheckRunEvent = api.CheckRunEvent
 CheckSuiteEvent = api.CheckSuiteEvent
+ContentReferenceEvent = api.ContentReferenceEvent
 CreateEvent = api.CreateEvent
 DeleteEvent = api.DeleteEvent
 ForkEvent = api.ForkEvent
@@ -31,6 +32,6 @@ ReleaseEvent = api.ReleaseEvent
 RepositoryEvent = api.RepositoryEvent
 
 
-__all__ = api.__all__
+__all__ = api.ALL
 __author__ = meta.AUTHOR
 __version__ = meta.VERSION

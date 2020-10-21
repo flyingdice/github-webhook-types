@@ -8,11 +8,30 @@ from typing import Optional
 
 from . import hooks
 
-__all__ = ['new_event', 'new_id', 'Event', 'EventName', 'EventT', 'ID',
-           'CheckRunEvent', 'CheckSuiteEvent', 'CreateEvent', 'DeleteEvent',
-           'ForkEvent', 'InstallationEvent', 'InstallationRepositoriesEvent',
-           'LabelEvent', 'PingEvent', 'PublicEvent', 'PullRequestEvent',
-           'PushEvent', 'ReleaseEvent', 'RepositoryEvent']
+# Defines public package interface __all__.
+ALL = [
+    'new_event',
+    'new_id',
+    'Event',
+    'EventName',
+    'EventT',
+    'ID',
+    'CheckRunEvent',
+    'CheckSuiteEvent',
+    'ContentReferenceEvent',
+    'CreateEvent',
+    'DeleteEvent',
+    'ForkEvent',
+    'InstallationEvent',
+    'InstallationRepositoriesEvent',
+    'LabelEvent',
+    'PingEvent',
+    'PublicEvent',
+    'PullRequestEvent',
+    'PushEvent',
+    'ReleaseEvent',
+    'RepositoryEvent'
+]
 
 # Export common base types.
 Event = hooks.Event
@@ -23,6 +42,7 @@ ID = hooks.ID
 # Export concrete event types.
 CheckRunEvent = hooks.CheckRunEvent
 CheckSuiteEvent = hooks.CheckSuiteEvent
+ContentReferenceEvent = hooks.ContentReferenceEvent
 CreateEvent = hooks.CreateEvent
 DeleteEvent = hooks.DeleteEvent
 ForkEvent = hooks.ForkEvent
