@@ -159,8 +159,8 @@ class Permissions:
 
 @dataclasses.dataclass
 class Pusher:
-    email: str
     name: str
+    email: Optional[str]
 
 
 @dataclasses.dataclass

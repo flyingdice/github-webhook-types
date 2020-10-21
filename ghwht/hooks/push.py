@@ -52,14 +52,14 @@ class Organization:
 class Author:
     email: str
     name: str
-    username: str
+    username: Optional[str] = None
 
 
 @dataclasses.dataclass
 class Committer:
     email: str
     name: str
-    username: str
+    username: Optional[str] = None
 
 
 @dataclasses.dataclass
