@@ -21,6 +21,7 @@ ForkEvent = api.ForkEvent
 InstallationEvent = api.InstallationEvent
 InstallationRepositoriesEvent = api.InstallationRepositoriesEvent
 IssueCommentEvent = api.IssueCommentEvent
+IssuesEvent = api.IssuesEvent
 LabelEvent = api.LabelEvent
 PingEvent = api.PingEvent
 PublicEvent = api.PublicEvent

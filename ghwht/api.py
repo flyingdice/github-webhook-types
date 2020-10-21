@@ -29,6 +29,7 @@ ForkEvent = hooks.ForkEvent
 InstallationEvent = hooks.InstallationEvent
 InstallationRepositoriesEvent = hooks.InstallationRepositoriesEvent
 IssueCommentEvent = hooks.IssueCommentEvent
+IssuesEvent = hooks.IssuesEvent
 LabelEvent = hooks.LabelEvent
 PingEvent = hooks.PingEvent
 PublicEvent = hooks.PublicEvent

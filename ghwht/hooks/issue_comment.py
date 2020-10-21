@@ -26,36 +26,6 @@ class Changes:
 
 
 @dataclasses.dataclass
-class Issue:
-    assignee: Optional[common.Assignee]
-    assignees: List[common.Assignee]
-    author_association: common.AuthorAssociation
-    body: str
-    closed_at: Optional[datetime]
-    comments: int
-    comments_url: HttpUrl
-    created_at: datetime
-    events_url: HttpUrl
-    html_url: HttpUrl
-    id: int
-    labels: List[common.Label]
-    labels_url: HttpUrl
-    locked: bool
-    milestone: Optional[common.Milestone]
-    node_id: str
-    number: int
-    repository_url: HttpUrl
-    state: common.State
-    title: str
-    updated_at: datetime
-    url: HttpUrl
-    user: common.User
-
-    active_lock_reason: Optional[str] = None
-    performed_via_github_app: Optional[bool] = None
-
-
-@dataclasses.dataclass
 class Comment:
     author_association: common.AuthorAssociation
     body: str
@@ -74,7 +44,7 @@ class Comment:
 @dataclasses.dataclass
 class Payload(base.Payload):
     comment: Comment
-    issue: Issue
+    issue: common.Issue
     repository: common.Repository
     sender: common.Sender
 

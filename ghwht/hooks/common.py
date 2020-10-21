@@ -6,7 +6,7 @@
 """
 from datetime import datetime
 import enum
-from typing import Optional
+from typing import List, Optional
 
 from pydantic import BaseModel, Field, HttpUrl, dataclasses
 
@@ -317,3 +317,33 @@ class Milestone:
     title: str
     updated_at: datetime
     url: HttpUrl
+
+
+@dataclasses.dataclass
+class Issue:
+    assignee: Optional[Assignee]
+    assignees: List[Assignee]
+    author_association: AuthorAssociation
+    body: str
+    closed_at: Optional[datetime]
+    comments: int
+    comments_url: HttpUrl
+    created_at: datetime
+    events_url: HttpUrl
+    html_url: HttpUrl
+    id: int
+    labels: List[Label]
+    labels_url: HttpUrl
+    locked: bool
+    milestone: Optional[Milestone]
+    node_id: str
+    number: int
+    repository_url: HttpUrl
+    state: State
+    title: str
+    updated_at: datetime
+    url: HttpUrl
+    user: User
+
+    active_lock_reason: Optional[str] = None
+    performed_via_github_app: Optional[bool] = None
