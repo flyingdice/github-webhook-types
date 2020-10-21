@@ -6,9 +6,9 @@
 """
 from typing import Dict, Type
 
-from . import (base, check_run, check_suite, content_reference, create, delete, fork,
-               installation, installation_repositories, issue_comment, issues,
-               label, ping, public, pull_request, push, release, repository)
+from . import (base, check_run, check_suite, content_reference, create, deploy_key,
+               delete, fork, installation, installation_repositories, issue_comment,
+               issues, label, ping, public, pull_request, push, release, repository)
 
 __all__ = [
     'NAME_TO_EVENT',
@@ -21,6 +21,7 @@ __all__ = [
     'ContentReferenceEvent',
     'CreateEvent',
     'DeleteEvent',
+    'DeployKeyEvent',
     'ForkEvent',
     'InstallationEvent',
     'InstallationRepositoriesEvent',
@@ -45,7 +46,8 @@ CheckRunEvent = check_run.Event
 CheckSuiteEvent = check_suite.Event
 ContentReferenceEvent = content_reference.Event
 CreateEvent = create.Event
-DeleteEvent = create.Event
+DeleteEvent = delete.Event
+DeployKeyEvent = deploy_key.Event
 ForkEvent = create.Event
 InstallationEvent = installation.Event
 InstallationRepositoriesEvent = installation_repositories.Event

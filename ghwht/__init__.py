@@ -18,6 +18,7 @@ CheckSuiteEvent = api.CheckSuiteEvent
 ContentReferenceEvent = api.ContentReferenceEvent
 CreateEvent = api.CreateEvent
 DeleteEvent = api.DeleteEvent
+DeployKeyEvent = api.DeployKeyEvent
 ForkEvent = api.ForkEvent
 InstallationEvent = api.InstallationEvent
 InstallationRepositoriesEvent = api.InstallationRepositoriesEvent
