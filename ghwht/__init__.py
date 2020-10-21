@@ -30,6 +30,7 @@ MemberEvent = api.MemberEvent
 MembershipEvent = api.MembershipEvent
 MetaEvent = api.MetaEvent
 MilestoneEvent = api.MilestoneEvent
+OrganizationEvent = api.OrganizationEvent
 PingEvent = api.PingEvent
 PublicEvent = api.PublicEvent
 PullRequestEvent = api.PullRequestEvent
