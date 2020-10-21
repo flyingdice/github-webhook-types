@@ -105,6 +105,7 @@ class Account:
 Assignee = Account
 Author = Account
 Creator = Account
+Member = Account
 Owner = Account
 Pusher = Account
 Reviewer = Account

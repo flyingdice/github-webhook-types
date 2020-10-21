@@ -8,7 +8,7 @@ from typing import Dict, Type
 
 from . import (base, check_run, check_suite, content_reference, create, deploy_key,
                delete, fork, installation, installation_repositories, issue_comment,
-               issues, label, marketplace_purchase, ping, public, pull_request, push,
+               issues, label, marketplace_purchase, member, ping, public, pull_request, push,
                release, repository)
 
 __all__ = [
@@ -28,6 +28,7 @@ __all__ = [
     'InstallationRepositoriesEvent',
     'LabelEvent',
     'MarketplacePurchaseEvent',
+    'MemberEvent',
     'PingEvent',
     'PublicEvent',
     'PullRequestEvent',
@@ -57,6 +58,7 @@ IssueCommentEvent = issue_comment.Event
 IssuesEvent = issues.Event
 LabelEvent = label.Event
 MarketplacePurchaseEvent = marketplace_purchase.Event
+MemberEvent = member.Event
 PingEvent = ping.Event
 PublicEvent = public.Event
 PullRequestEvent = pull_request.Event
@@ -71,7 +73,7 @@ def hooks_modules():
     """
     yield from (check_run, check_suite, content_reference, create, delete, fork,
                 installation, installation_repositories, issue_comment, issues,
-                label, marketplace_purchase, ping, public, pull_request, push,
+                label, marketplace_purchase, member, ping, public, pull_request, push,
                 release, repository)
 
 
