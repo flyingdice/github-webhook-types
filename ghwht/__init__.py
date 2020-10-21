@@ -20,6 +20,7 @@ DeleteEvent = api.DeleteEvent
 ForkEvent = api.ForkEvent
 InstallationEvent = api.InstallationEvent
 InstallationRepositoriesEvent = api.InstallationRepositoriesEvent
+IssueCommentEvent = api.IssueCommentEvent
 LabelEvent = api.LabelEvent
 PingEvent = api.PingEvent
 PublicEvent = api.PublicEvent

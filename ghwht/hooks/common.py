@@ -11,6 +11,12 @@ from typing import Optional
 from pydantic import BaseModel, Field, HttpUrl, dataclasses
 
 
+class AuthorAssociation(str, enum.Enum):
+    Contributor = 'CONTRIBUTOR'
+    None_ = 'NONE'
+    Owner = 'OWNER'
+
+
 class Conclusion(str, enum.Enum):
     ActionRequired = 'action_required'
     Cancelled = 'cancelled'
@@ -58,6 +64,12 @@ class PusherType(str, enum.Enum):
     User = 'user'
 
 
+class State(str, enum.Enum):
+    All = 'all'
+    Closed = 'closed'
+    Open = 'open'
+
+
 class TargetType(str, enum.Enum):
     Bot = 'Bot'
     Organization = 'Organization'
@@ -92,6 +104,7 @@ class Account:
 
 Assignee = Account
 Author = Account
+Creator = Account
 Owner = Account
 Pusher = Account
 Reviewer = Account
@@ -278,8 +291,29 @@ class Team:
 class Label:
     color: str
     default: bool
-    description: str
     id: int
     name: str
     node_id: str
+    url: HttpUrl
+
+    description: Optional[str] = None
+
+
+@dataclasses.dataclass
+class Milestone:
+    closed_at: Optional[datetime]
+    closed_issues: int
+    created_at: datetime
+    creator: Creator
+    description: Optional[str]
+    due_on: Optional[datetime]
+    html_url: HttpUrl
+    id: int
+    labels_url: HttpUrl
+    node_id: str
+    number: int
+    open_issues: int
+    state: State
+    title: str
+    updated_at: datetime
     url: HttpUrl

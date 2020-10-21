@@ -33,18 +33,6 @@ class Action(base.Action):
     Unlocked = 'unlocked'
 
 
-class State(str, enum.Enum):
-    All = 'all'
-    Closed = 'closed'
-    Open = 'open'
-
-
-class AuthorAssociation(str, enum.Enum):
-    Contributor = 'CONTRIBUTOR'
-    None_ = 'NONE'
-    Owner = 'OWNER'
-
-
 @dataclasses.dataclass
 class Links:
     comments: common.Link
@@ -68,7 +56,7 @@ class PullRequest(BaseModel):
     additions: int
     assignee: Optional[common.User]
     assignees: List[common.User]
-    author_association: AuthorAssociation
+    author_association: common.AuthorAssociation
     base: common.Commit
     body: str
     changed_files: int
@@ -105,7 +93,7 @@ class PullRequest(BaseModel):
     review_comment_url: HttpUrl
     review_comments: int
     review_comments_url: HttpUrl
-    state: State
+    state: common.State
     statuses_url: HttpUrl
     title: str
     updated_at: datetime
