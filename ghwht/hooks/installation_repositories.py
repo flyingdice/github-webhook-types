@@ -50,7 +50,7 @@ class Installation:
     app_id: int
     app_slug: str
     created_at: datetime
-    events: List[common.Event]
+    events: List[base.EventName]
     html_url: HttpUrl
     id: int
     permissions: common.InstallationPermissions

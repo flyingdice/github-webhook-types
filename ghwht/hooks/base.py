@@ -11,8 +11,6 @@ from uuid import UUID
 
 from pydantic import dataclasses, generics
 
-from . import common
-
 
 class EventName(str, enum.Enum):
     """

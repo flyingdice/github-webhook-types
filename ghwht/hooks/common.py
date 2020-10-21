@@ -10,6 +10,8 @@ from typing import List, Optional
 
 from pydantic import BaseModel, Field, HttpUrl, dataclasses
 
+from . import base
+
 
 class AuthorAssociation(str, enum.Enum):
     Contributor = 'CONTRIBUTOR'
@@ -27,31 +29,10 @@ class Conclusion(str, enum.Enum):
     TimedOut = 'timed_out'
 
 
-class Event(str, enum.Enum):
-    CheckRun = 'check_run'
-    CheckSuite = 'check_suite'
-    CommitComment = 'commit_comment'
-    Create = 'create'
-    Delete = 'delete'
-    Fork = 'fork'
-    Gollum = 'gollum'
-    Issues = 'issues'
-    IssueComment = 'issue_comment'
-    Label = 'label'
-    Milestone = 'milestone'
-    Public = 'public'
-    PullRequest = 'pull_request'
-    PullRequestReview = 'pull_request_review'
-    PullRequestReviewComment = 'pull_request_review_comment'
-    Push = 'push'
-    Release = 'release'
-    Repository = 'repository'
-    RepositoryDispatch = 'repository_dispatch'
-    Star = 'star'
-    Status = 'status'
-    Watch = 'watch'
-    WorkflowDispatch = 'workflow_dispatch'
-    WorkflowRun = 'workflow_run'
+class HookType(str, enum.Enum):
+    Organization = 'Organization'
+    Repository = 'Repository'
+    # TODO: Values for business, app, github marketplace.
 
 
 class Permission(str, enum.Enum):
@@ -359,3 +340,23 @@ class Issue:
 
     active_lock_reason: Optional[str] = None
     performed_via_github_app: Optional[bool] = None
+
+
+@dataclasses.dataclass
+class HookConfig:
+    content_type: str
+    insecure_ssl: str
+    url: HttpUrl
+
+
+@dataclasses.dataclass
+class Hook:
+    active: bool
+    app_id: str
+    config: HookConfig
+    created_at: datetime
+    events: List[base.EventName]
+    id: int
+    name: str
+    type: HookType
+    updated_at: datetime

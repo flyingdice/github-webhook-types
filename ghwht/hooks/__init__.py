@@ -8,7 +8,7 @@ from typing import Dict, Type
 
 from . import (base, check_run, check_suite, content_reference, create, deploy_key,
                delete, fork, installation, installation_repositories, issue_comment,
-               issues, label, marketplace_purchase, member, membership, ping, public,
+               issues, label, marketplace_purchase, member, membership, meta, ping, public,
                pull_request, push, release, repository)
 
 __all__ = [
@@ -30,6 +30,7 @@ __all__ = [
     'MarketplacePurchaseEvent',
     'MemberEvent',
     'MembershipEvent',
+    'MetaEvent',
     'PingEvent',
     'PublicEvent',
     'PullRequestEvent',
@@ -61,6 +62,7 @@ LabelEvent = label.Event
 MarketplacePurchaseEvent = marketplace_purchase.Event
 MemberEvent = member.Event
 MembershipEvent = membership.Event
+MetaEvent = meta.Event
 PingEvent = ping.Event
 PublicEvent = public.Event
 PullRequestEvent = pull_request.Event
