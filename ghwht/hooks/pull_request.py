@@ -108,7 +108,9 @@ class Payload(base.Payload):
     repository: common.Repository
     sender: common.Sender
 
+    after: Optional[str] = None
     assignee: Optional[common.Assignee] = None
+    before: Optional[str] = None
     installation: Optional[common.Installation] = None
     label: Optional[common.Label] = None
     organization: Optional[common.Organization] = None
