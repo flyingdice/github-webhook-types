@@ -8,7 +8,8 @@ from typing import Dict, Type
 
 from . import (base, check_run, check_suite, content_reference, create, deploy_key,
                delete, fork, installation, installation_repositories, issue_comment,
-               issues, label, ping, public, pull_request, push, release, repository)
+               issues, label, marketplace_purchase, ping, public, pull_request, push,
+               release, repository)
 
 __all__ = [
     'NAME_TO_EVENT',
@@ -26,6 +27,7 @@ __all__ = [
     'InstallationEvent',
     'InstallationRepositoriesEvent',
     'LabelEvent',
+    'MarketplacePurchaseEvent',
     'PingEvent',
     'PublicEvent',
     'PullRequestEvent',
@@ -54,6 +56,7 @@ InstallationRepositoriesEvent = installation_repositories.Event
 IssueCommentEvent = issue_comment.Event
 IssuesEvent = issues.Event
 LabelEvent = label.Event
+MarketplacePurchaseEvent = marketplace_purchase.Event
 PingEvent = ping.Event
 PublicEvent = public.Event
 PullRequestEvent = pull_request.Event
@@ -68,7 +71,8 @@ def hooks_modules():
     """
     yield from (check_run, check_suite, content_reference, create, delete, fork,
                 installation, installation_repositories, issue_comment, issues,
-                label, ping, public, pull_request, push, release, repository)
+                label, marketplace_purchase, ping, public, pull_request, push,
+                release, repository)
 
 
 # Lookup table that maps event names to their appropriate identifier type.
