@@ -6,11 +6,11 @@
 """
 from typing import Dict, Type
 
-from . import (base, check_run, check_suite, code_scanning_alert, content_reference,
-               create, deploy_key, delete, fork, installation, installation_repositories,
-               issue_comment, issues, label, marketplace_purchase, member, membership,
-               meta, milestone, organization, ping, public, pull_request, push,
-               release, repository)
+from . import (base, check_run, check_suite, code_scanning_alert, commit_comment,
+               content_reference, create, deploy_key, delete, fork, installation,
+               installation_repositories, issue_comment, issues, label,
+               marketplace_purchase, member, membership, meta, milestone,
+               organization, ping, public, pull_request, push, release, repository)
 
 __all__ = [
     'NAME_TO_EVENT',
@@ -21,6 +21,7 @@ __all__ = [
     'CheckRunEvent',
     'CheckSuiteEvent',
     'CodeScanningAlertEvent',
+    'CommitCommentEvent',
     'ContentReferenceEvent',
     'CreateEvent',
     'DeleteEvent',
@@ -54,6 +55,7 @@ IDT = base.IDT
 CheckRunEvent = check_run.Event
 CheckSuiteEvent = check_suite.Event
 CodeScanningAlertEvent = code_scanning_alert.Event
+CommitCommentEvent = commit_comment.Event
 ContentReferenceEvent = content_reference.Event
 CreateEvent = create.Event
 DeleteEvent = delete.Event

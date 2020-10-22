@@ -19,6 +19,7 @@ ALL = [
     'CheckRunEvent',
     'CheckSuiteEvent',
     'CodeScanningAlertEvent',
+    'CommitCommentEvent',
     'ContentReferenceEvent',
     'CreateEvent',
     'DeleteEvent',
@@ -51,6 +52,7 @@ ID = hooks.ID
 CheckRunEvent = hooks.CheckRunEvent
 CheckSuiteEvent = hooks.CheckSuiteEvent
 CodeScanningAlertEvent = hooks.CodeScanningAlertEvent
+CommitCommentEvent = hooks.CommitCommentEvent
 ContentReferenceEvent = hooks.ContentReferenceEvent
 CreateEvent = hooks.CreateEvent
 DeleteEvent = hooks.DeleteEvent
