@@ -9,7 +9,7 @@ import enum
 from typing import Generic, Optional, TypeVar
 from uuid import UUID
 
-from pydantic import dataclasses, generics
+from pydantic import dataclasses, generics, BaseModel
 
 
 class EventName(str, enum.Enum):
@@ -81,8 +81,7 @@ class Action(enum.Enum):
 ActionT = TypeVar('ActionT', bound=Action)
 
 
-@dataclasses.dataclass
-class Payload:
+class Payload(BaseModel):
     """
     Represents a Github event payload.
 

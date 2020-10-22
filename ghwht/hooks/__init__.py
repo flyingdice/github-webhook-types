@@ -6,10 +6,11 @@
 """
 from typing import Dict, Type
 
-from . import (base, check_run, check_suite, content_reference, create, deploy_key,
-               delete, fork, installation, installation_repositories, issue_comment,
-               issues, label, marketplace_purchase, member, membership, meta, milestone,
-               organization, ping, public, pull_request, push, release, repository)
+from . import (base, check_run, check_suite, code_scanning_alert, content_reference,
+               create, deploy_key, delete, fork, installation, installation_repositories,
+               issue_comment, issues, label, marketplace_purchase, member, membership,
+               meta, milestone, organization, ping, public, pull_request, push,
+               release, repository)
 
 __all__ = [
     'NAME_TO_EVENT',
@@ -19,6 +20,7 @@ __all__ = [
     'ID',
     'CheckRunEvent',
     'CheckSuiteEvent',
+    'CodeScanningAlertEvent',
     'ContentReferenceEvent',
     'CreateEvent',
     'DeleteEvent',
@@ -51,6 +53,7 @@ IDT = base.IDT
 # Alias concrete event types.
 CheckRunEvent = check_run.Event
 CheckSuiteEvent = check_suite.Event
+CodeScanningAlertEvent = code_scanning_alert.Event
 ContentReferenceEvent = content_reference.Event
 CreateEvent = create.Event
 DeleteEvent = delete.Event
@@ -79,10 +82,11 @@ def hooks_modules():
     """
     Generator function that yields all registered webhook event modules.
     """
-    yield from (check_run, check_suite, content_reference, create, delete, fork,
-                installation, installation_repositories, issue_comment, issues,
-                label, marketplace_purchase, member, membership, milestone,
-                organization, ping, public, pull_request, push, release, repository)
+    yield from (check_run, check_suite, code_scanning_alert, content_reference,
+                create, delete, fork, installation, installation_repositories,
+                issue_comment, issues, label, marketplace_purchase, member,
+                membership, milestone, organization, ping, public, pull_request,
+                push, release, repository)
 
 
 # Lookup table that maps event names to their appropriate identifier type.

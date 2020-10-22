@@ -15,6 +15,7 @@ ID = api.ID
 
 CheckRunEvent = api.CheckRunEvent
 CheckSuiteEvent = api.CheckSuiteEvent
+CodeScanningAlertEvent = api.CodeScanningAlertEvent
 ContentReferenceEvent = api.ContentReferenceEvent
 CreateEvent = api.CreateEvent
 DeleteEvent = api.DeleteEvent

@@ -18,6 +18,7 @@ ALL = [
     'ID',
     'CheckRunEvent',
     'CheckSuiteEvent',
+    'CodeScanningAlertEvent',
     'ContentReferenceEvent',
     'CreateEvent',
     'DeleteEvent',
@@ -49,6 +50,7 @@ ID = hooks.ID
 # Export concrete event types.
 CheckRunEvent = hooks.CheckRunEvent
 CheckSuiteEvent = hooks.CheckSuiteEvent
+CodeScanningAlertEvent = hooks.CodeScanningAlertEvent
 ContentReferenceEvent = hooks.ContentReferenceEvent
 CreateEvent = hooks.CreateEvent
 DeleteEvent = hooks.DeleteEvent
