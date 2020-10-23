@@ -7,8 +7,8 @@
 from typing import Dict, Type
 
 from . import (base, check_run, check_suite, code_scanning_alert, commit_comment,
-               content_reference, create, delete, deploy_key, deployment, fork, installation,
-               installation_repositories, issue_comment, issues, label,
+               content_reference, create, delete, deploy_key, deployment, deployment_status,
+               fork, installation, installation_repositories, issue_comment, issues, label,
                marketplace_purchase, member, membership, meta, milestone,
                organization, ping, public, pull_request, push, release, repository)
 
@@ -27,6 +27,7 @@ __all__ = [
     'DeleteEvent',
     'DeployKeyEvent',
     'DeploymentEvent',
+    'DeploymentStatusEvent',
     'ForkEvent',
     'InstallationEvent',
     'InstallationRepositoriesEvent',
@@ -62,6 +63,7 @@ CreateEvent = create.Event
 DeleteEvent = delete.Event
 DeployKeyEvent = deploy_key.Event
 DeploymentEvent = deployment.Event
+DeploymentStatusEvent = deployment_status.Event
 ForkEvent = create.Event
 InstallationEvent = installation.Event
 InstallationRepositoriesEvent = installation_repositories.Event
@@ -87,8 +89,8 @@ def hooks_modules():
     Generator function that yields all registered webhook event modules.
     """
     yield from (check_run, check_suite, code_scanning_alert, content_reference,
-                create, delete, deploy_key, deployment, fork, installation,
-                installation_repositories, issue_comment, issues, label,
+                create, delete, deploy_key, deployment, deployment_status, fork,
+                installation, installation_repositories, issue_comment, issues, label,
                 marketplace_purchase, member, membership, milestone, organization,
                 ping, public, pull_request, push, release, repository)
 

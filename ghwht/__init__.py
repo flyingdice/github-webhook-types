@@ -22,6 +22,7 @@ CreateEvent = api.CreateEvent
 DeleteEvent = api.DeleteEvent
 DeployKeyEvent = api.DeployKeyEvent
 DeploymentEvent = api.DeploymentEvent
+DeploymentStatusEvent = api.DeploymentStatusEvent
 ForkEvent = api.ForkEvent
 InstallationEvent = api.InstallationEvent
 InstallationRepositoriesEvent = api.InstallationRepositoriesEvent

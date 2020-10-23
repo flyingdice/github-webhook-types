@@ -6,10 +6,9 @@
 
     https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhook-events-and-payloads#deployment
 """
-from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 
-from pydantic import dataclasses, HttpUrl
+from pydantic import dataclasses
 
 from . import base, common
 
@@ -19,32 +18,8 @@ class Action(base.Action):
 
 
 @dataclasses.dataclass
-class Payload:
-    pass
-
-
-@dataclasses.dataclass
-class Deployment:
-    created_at: datetime
-    creator: common.Creator
-    description: Optional[str]
-    environment: str
-    id: int
-    node_id: str
-    original_environment: str
-    payload: Dict[str, Any]
-    ref: str
-    repository_url: HttpUrl
-    sha: str
-    statuses_url: HttpUrl
-    task: str
-    updated_at: datetime
-    url: HttpUrl
-
-
-@dataclasses.dataclass
 class Payload(base.Payload):
-    deployment: Deployment
+    deployment: common.Deployment
     repository: common.Repository
     sender: common.Sender
 

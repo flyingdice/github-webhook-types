@@ -6,7 +6,7 @@
 """
 from datetime import datetime
 import enum
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel, Field, HttpUrl, dataclasses
 
@@ -360,3 +360,22 @@ class Hook:
     name: str
     type: HookType
     updated_at: datetime
+
+
+@dataclasses.dataclass
+class Deployment:
+    created_at: datetime
+    creator: Creator
+    description: Optional[str]
+    environment: str
+    id: int
+    node_id: str
+    original_environment: str
+    payload: Dict[str, Any]
+    ref: str
+    repository_url: HttpUrl
+    sha: str
+    statuses_url: HttpUrl
+    task: str
+    updated_at: datetime
+    url: HttpUrl
