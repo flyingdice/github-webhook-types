@@ -27,6 +27,7 @@ ALL = [
     'DeploymentEvent',
     'DeploymentStatusEvent',
     'ForkEvent',
+    'GitHubAppAuthorizationEvent',
     'InstallationEvent',
     'InstallationRepositoriesEvent',
     'LabelEvent',
@@ -62,6 +63,7 @@ DeployKeyEvent = hooks.DeployKeyEvent
 DeploymentEvent = hooks.DeploymentEvent
 DeploymentStatusEvent = hooks.DeploymentStatusEvent
 ForkEvent = hooks.ForkEvent
+GitHubAppAuthorizationEvent = hooks.GitHubAppAuthorizationEvent
 InstallationEvent = hooks.InstallationEvent
 InstallationRepositoriesEvent = hooks.InstallationRepositoriesEvent
 IssueCommentEvent = hooks.IssueCommentEvent

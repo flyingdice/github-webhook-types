@@ -24,6 +24,7 @@ DeployKeyEvent = api.DeployKeyEvent
 DeploymentEvent = api.DeploymentEvent
 DeploymentStatusEvent = api.DeploymentStatusEvent
 ForkEvent = api.ForkEvent
+GitHubAppAuthorizationEvent = api.GitHubAppAuthorizationEvent
 InstallationEvent = api.InstallationEvent
 InstallationRepositoriesEvent = api.InstallationRepositoriesEvent
 IssueCommentEvent = api.IssueCommentEvent

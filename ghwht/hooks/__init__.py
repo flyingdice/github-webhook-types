@@ -8,9 +8,9 @@ from typing import Dict, Type
 
 from . import (base, check_run, check_suite, code_scanning_alert, commit_comment,
                content_reference, create, delete, deploy_key, deployment, deployment_status,
-               fork, installation, installation_repositories, issue_comment, issues, label,
-               marketplace_purchase, member, membership, meta, milestone,
-               organization, ping, public, pull_request, push, release, repository)
+               fork, github_app_authorization, installation, installation_repositories,
+               issue_comment, issues, label, marketplace_purchase, member, membership, meta,
+               milestone, organization, ping, public, pull_request, push, release, repository)
 
 __all__ = [
     'NAME_TO_EVENT',
@@ -29,6 +29,7 @@ __all__ = [
     'DeploymentEvent',
     'DeploymentStatusEvent',
     'ForkEvent',
+    'GitHubAppAuthorizationEvent',
     'InstallationEvent',
     'InstallationRepositoriesEvent',
     'LabelEvent',
@@ -65,6 +66,7 @@ DeployKeyEvent = deploy_key.Event
 DeploymentEvent = deployment.Event
 DeploymentStatusEvent = deployment_status.Event
 ForkEvent = create.Event
+GitHubAppAuthorizationEvent = github_app_authorization.Event
 InstallationEvent = installation.Event
 InstallationRepositoriesEvent = installation_repositories.Event
 IssueCommentEvent = issue_comment.Event
@@ -90,9 +92,9 @@ def hooks_modules():
     """
     yield from (check_run, check_suite, code_scanning_alert, content_reference,
                 create, delete, deploy_key, deployment, deployment_status, fork,
-                installation, installation_repositories, issue_comment, issues, label,
-                marketplace_purchase, member, membership, milestone, organization,
-                ping, public, pull_request, push, release, repository)
+                github_app_authorization, installation, installation_repositories,
+                issue_comment, issues, label, marketplace_purchase, member, membership,
+                milestone, organization, ping, public, pull_request, push, release, repository)
 
 
 # Lookup table that maps event names to their appropriate identifier type.
