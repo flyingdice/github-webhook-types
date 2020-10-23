@@ -24,6 +24,7 @@ ALL = [
     'CreateEvent',
     'DeleteEvent',
     'DeployKeyEvent',
+    'DeploymentEvent',
     'ForkEvent',
     'InstallationEvent',
     'InstallationRepositoriesEvent',
@@ -57,6 +58,7 @@ ContentReferenceEvent = hooks.ContentReferenceEvent
 CreateEvent = hooks.CreateEvent
 DeleteEvent = hooks.DeleteEvent
 DeployKeyEvent = hooks.DeployKeyEvent
+DeploymentEvent = hooks.DeploymentEvent
 ForkEvent = hooks.ForkEvent
 InstallationEvent = hooks.InstallationEvent
 InstallationRepositoriesEvent = hooks.InstallationRepositoriesEvent
