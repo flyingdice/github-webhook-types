@@ -17,6 +17,7 @@ ALL = [
     'Event',
     'EventName',
     'EventT',
+    'ActionT',
     'ID',
     'CheckRunEvent',
     'CheckSuiteEvent',
@@ -44,14 +45,19 @@ ALL = [
     'PullRequestEvent',
     'PushEvent',
     'ReleaseEvent',
-    'RepositoryEvent'
+    'RepositoryEvent',
+    'SecurityAdvisoryEvent'
 ]
 
 # Export common base types.
 Event = hooks.Event
 EventName = hooks.EventName
 EventT = hooks.EventT
+ActionT = hooks.ActionT
 ID = hooks.ID
+
+# Export enum types.
+TargetType = hooks.TargetType
 
 # Export concrete event types.
 CheckRunEvent = hooks.CheckRunEvent

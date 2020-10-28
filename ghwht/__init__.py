@@ -11,7 +11,10 @@ new_id = api.new_id
 Event = api.Event
 EventName = api.EventName
 EventT = api.EventT
+ActionT = api.ActionT
 ID = api.ID
+
+TargetType = api.TargetType
 
 CheckRunEvent = api.CheckRunEvent
 CheckSuiteEvent = api.CheckSuiteEvent

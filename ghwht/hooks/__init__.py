@@ -6,17 +6,19 @@
 """
 from typing import Dict, Type
 
-from . import (base, check_run, check_suite, code_scanning_alert, commit_comment,
+from . import (base, check_run, check_suite, code_scanning_alert, commit_comment, common,
                content_reference, create, delete, deploy_key, deployment, deployment_status,
                fork, github_app_authorization, installation, installation_repositories,
                issue_comment, issues, label, marketplace_purchase, member, membership, meta,
-               milestone, organization, ping, public, pull_request, push, release, repository)
+               milestone, organization, ping, public, pull_request, push, release, repository,
+               security_advisory)
 
 __all__ = [
     'NAME_TO_EVENT',
     'Event',
     'EventName',
     'EventT',
+    'ActionT',
     'ID',
     'CheckRunEvent',
     'CheckSuiteEvent',
@@ -44,15 +46,20 @@ __all__ = [
     'PushEvent',
     'OrganizationEvent',
     'ReleaseEvent',
-    'RepositoryEvent'
+    'RepositoryEvent',
+    'SecurityAdvisoryEvent'
 ]
 
 # Alias base types.
 Event = base.Event
 EventName = base.EventName
 EventT = base.EventT
+ActionT = base.ActionT
 ID = base.ID
 IDT = base.IDT
+
+# Export enum types.
+TargetType = common.TargetType
 
 # Alias concrete event types.
 CheckRunEvent = check_run.Event
