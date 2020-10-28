@@ -51,12 +51,14 @@ class Installation:
     app_slug: str
     created_at: datetime
     events: List[base.EventName]
+    has_multiple_single_files: bool
     html_url: HttpUrl
     id: int
     permissions: common.InstallationPermissions
     repository_selection: common.RepositorySelection
     repositories_url: HttpUrl
     single_file_name: Optional[str]
+    single_file_paths: List[str]
     suspended_at: Optional[str]
     suspended_by: Optional[str]
     target_id: int
