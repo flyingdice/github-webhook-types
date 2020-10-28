@@ -4,6 +4,8 @@
 
     Defines the public API for the `ghwht` package.
 """
+import uuid
+
 from typing import Optional
 
 from . import hooks
@@ -83,7 +85,7 @@ ReleaseEvent = hooks.ReleaseEvent
 RepositoryEvent = hooks.RepositoryEvent
 
 
-def new_event(delivery_id: str,
+def new_event(delivery_id: uuid.UUID,
               event_name: str,
               hook_id: int,
               action: Optional[str],
@@ -107,7 +109,7 @@ def new_event(delivery_id: str,
 
     return event_cls(
         id=id_cls(
-            event_name=name,
+            name=name,
             action=action
         ),
         delivery_id=delivery_id,
@@ -132,6 +134,6 @@ def new_id(value: str) -> ID:
 
     name = hooks.EventName(event_name)
     return hooks.NAME_TO_ID[name](
-        event_name=name,
+        name=name,
         action=extras[0] if len(extras) else None
     )

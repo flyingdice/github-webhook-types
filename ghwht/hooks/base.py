@@ -5,11 +5,12 @@
     Contains types generic to all GitHub webhooks.
 """
 import enum
+import operator
 
-from typing import Generic, Optional, TypeVar
+from typing import Any, Generic, Optional, TypeVar
 from uuid import UUID
 
-from pydantic import dataclasses, generics, BaseModel
+from pydantic import dataclasses, generics
 
 
 class EventName(str, enum.Enum):
@@ -81,13 +82,32 @@ class Action(enum.Enum):
 ActionT = TypeVar('ActionT', bound=Action)
 
 
-class Payload(BaseModel):
+@dataclasses.dataclass
+class Payload:
     """
     Represents a Github event payload.
 
     This is a marker class so we can apply inheritance constraints on generic
     types and shouldn't implement any fields.
     """
+    def get(self, attr, default=None) -> Any:
+        """
+        Get the payload attribute at the given attr path.
+
+        If the payload does not have an attribute for the path, return the
+        default value is returned.
+
+        Ex: payload.get('foo') -> getattr(payload, 'foo', None)
+            payload.get('foo.bar') -> getattr(getattr(payload, 'foo', None), 'bar', None)
+
+        :param attr: Attr path to get
+        :param default: Value to return when attr is not found
+        :return: Value in payload for the attr path
+        """
+        try:
+            return operator.attrgetter(attr)(self)
+        except AttributeError:
+            return default
 
 
 # Generic type var for types derived from :class:`~ghwht.hooks.base.Payload`.
@@ -101,14 +121,14 @@ class ID(generics.GenericModel, Generic[ActionT]):
     Actions are optional for certain events, e.g. 'ping' while required for others
     e.g. 'issues.created'.
     """
-    event_name: EventName
+    name: EventName
     action: Optional[ActionT]
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         return hash(str(self))
 
-    def __str__(self):
-        return '.'.join((p.value for p in (self.event_name, self.action) if p))
+    def __str__(self) -> str:
+        return '.'.join((p.value for p in (self.name, self.action) if p))
 
 
 # Generic type var for types derived from :class:`~ghwht.hooks.base.ID`.
