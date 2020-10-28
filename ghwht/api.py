@@ -89,6 +89,7 @@ PullRequestEvent = hooks.PullRequestEvent
 PushEvent = hooks.PushEvent
 ReleaseEvent = hooks.ReleaseEvent
 RepositoryEvent = hooks.RepositoryEvent
+SecurityAdvisoryEvent = hooks.SecurityAdvisoryEvent
 
 
 def new_event(delivery_id: uuid.UUID,

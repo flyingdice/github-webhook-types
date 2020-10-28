@@ -45,6 +45,7 @@ PullRequestEvent = api.PullRequestEvent
 PushEvent = api.PushEvent
 ReleaseEvent = api.ReleaseEvent
 RepositoryEvent = api.RepositoryEvent
+SecurityAdvisoryEvent = api.SecurityAdvisoryEvent
 
 
 __all__ = api.ALL

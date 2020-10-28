@@ -91,6 +91,7 @@ PushEvent = push.Event
 OrganizationEvent = organization.Event
 ReleaseEvent = release.Event
 RepositoryEvent = repository.Event
+SecurityAdvisoryEvent = security_advisory.Event
 
 
 def hooks_modules():
@@ -101,7 +102,8 @@ def hooks_modules():
                 create, delete, deploy_key, deployment, deployment_status, fork,
                 github_app_authorization, installation, installation_repositories,
                 issue_comment, issues, label, marketplace_purchase, member, membership,
-                milestone, organization, ping, public, pull_request, push, release, repository)
+                milestone, organization, ping, public, pull_request, push, release,
+                repository, security_advisory)
 
 
 # Lookup table that maps event names to their appropriate identifier type.
