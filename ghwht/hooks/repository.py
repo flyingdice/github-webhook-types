@@ -26,11 +26,17 @@ class Action(base.Action):
 
 
 @dataclasses.dataclass
+class Repository:
+    name: Optional[common.Change] = None
+
+
+@dataclasses.dataclass
 class Changes:
     default_branch: Optional[common.Change] = None
     description: Optional[common.Change] = None
     homepage: Optional[common.Change] = None
     name: Optional[common.Change] = None
+    repository: Optional[Repository] = None
 
 
 @dataclasses.dataclass
