@@ -98,6 +98,9 @@ User = Account
 class Change(BaseModel):
     from_: str = Field(..., alias='from')
 
+    def __str__(self):
+        return str(self.from_)
+
 
 @dataclasses.dataclass
 class Installation:
