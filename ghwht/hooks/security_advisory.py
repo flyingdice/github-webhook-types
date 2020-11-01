@@ -23,6 +23,8 @@ class Action(base.Action):
 
 # TODO: Need full list of severities.
 class Severity(str, enum.Enum):
+    High = 'high'
+    Low = 'low'
     Moderate = 'moderate'
 
 
