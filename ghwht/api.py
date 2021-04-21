@@ -14,11 +14,13 @@ from . import hooks
 ALL = [
     'new_event',
     'new_id',
+    'is_access_revoked',
     'Event',
     'EventName',
     'EventT',
     'ActionT',
     'ID',
+    'EventRemovesIntegrationAccess',
     'CheckRunEvent',
     'CheckSuiteEvent',
     'CodeScanningAlertEvent',
@@ -144,3 +146,24 @@ def new_id(value: str) -> ID:
         name=name,
         action=extras[0] if len(extras) else None
     )
+
+
+# List of event ID's that indicate we no longer have integration API access when received.
+INTEGRATION_ACCESS_REMOVED_EVENTS = frozenset((
+    new_id('installation.suspend'),
+    new_id('installation.deleted')
+))
+
+
+def is_access_revoked(event: EventT) -> bool:
+    """
+    Return True if the given event indicates that access has been revoked.
+
+    This happens for the following GitHub events:
+    * installation.suspend
+    * installation.deleted
+
+    :param event: Event to check
+    :return: True if access has been revoked, False otherwise
+    """
+    return event.id in INTEGRATION_ACCESS_REMOVED_EVENTS

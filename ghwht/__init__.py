@@ -8,6 +8,7 @@ from . import api, meta
 
 new_event = api.new_event
 new_id = api.new_id
+is_access_revoked = api.is_access_revoked
 Event = api.Event
 EventName = api.EventName
 EventT = api.EventT
